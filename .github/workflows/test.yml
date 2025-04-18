@@ -32,7 +32,8 @@ jobs:
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           fail_ci_if_error: true               # Fails if upload or check fails
 
