@@ -1,0 +1,11 @@
+numpy
+scipy
+matplotlib
+cvxpy
+pytest # For unit test
+pytest-xdist # For unit test
+mypy # For unit test
+ruff # For unit test
+coveralls # For unit test
+pytest-cov
+pyyaml
