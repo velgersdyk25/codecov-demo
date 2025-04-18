@@ -1,0 +1,21 @@
+codecov:
+ token: 89d81e5a-7584-4d8f-8f27-1b287d11be08
+coverage:
+  status:
+    project:
+      default:
+        target: 80%
+        threshold: 0.1%
+        informational: false
+    patch:
+      default:
+        target: 80%
+        threshold: 0.1%
+        informational: false
+
+comment:
+  layout: "reach, diff, files"
+  require_changes: true
+
+
+

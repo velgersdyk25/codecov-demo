@@ -1,0 +1,38 @@
+on: ["push", "pull_request"]
+
+name: Test Coveralls
+
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        python-version: [ '3.12' ]
+    name: Python ${{ matrix.python-version }} CI
+    steps:
+      - uses: actions/checkout@v4
+      - run: git fetch --prune --unshallow
+
+      - name: Update bash
+        run: brew install bash
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies
+        run: |
+          python --version
+          python -m pip install --upgrade pip
+          pip install -r requirements/requirements.txt
+      - name: do all unit tests
+        run: bash runtests.sh
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          fail_ci_if_error: true               # Fails if upload or check fails
+
