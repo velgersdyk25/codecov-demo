@@ -33,7 +33,6 @@ jobs:
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          slug: velgersdyk25/PythonRobotics-coveralls
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           fail_ci_if_error: true               # Fails if upload or check fails
 
